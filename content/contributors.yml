@@ -1,0 +1,29 @@
+# Contributors Wall. Ordinea de pe site = ordinea din acest fisier.
+# Pozele stau in public/contributors/. Schema completa: README.md
+
+- name: Cristian Branet
+  role: Penetration Tester
+  photo: btz.jpg
+  tags:
+    - Offensive Security
+    - Community
+  links:
+    linkedin: https://www.linkedin.com/in/cristian-branet-1200762b5
+
+- name: Andrei Zbercea
+  role: Penetration Tester
+  photo: zbercea.jpg
+  tags:
+    - Offensive Security
+    - Community
+  links:
+    linkedin: https://www.linkedin.com/in/zbercea-andrei/
+
+- name: George-Daniel Păiuș
+  role: Cybersecurity Enthusiast
+  photo: paius.jpg
+  tags:
+    - Offensive Security
+    - Community
+  links:
+    linkedin: https://www.linkedin.com/in/george-paius/

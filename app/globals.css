@@ -1,0 +1,127 @@
+@import 'tailwindcss';
+
+/* Design tokens: derivate din invatacyber/branding/logo_brand_doc.md */
+@theme {
+  --color-navy-950: #060d16;
+  --color-navy-900: #0a1421; /* Background navy din brand sheet */
+  --color-navy-850: #0e1b2b;
+  --color-navy-800: #122236;
+  --color-navy-700: #1b3049;
+  --color-navy-600: #24405f;
+
+  --color-brand-200: #8fbdf5;
+  --color-brand-300: #5b9fee; /* Brand blue (light) */
+  --color-brand-400: #4681dd; /* Brand blue (mid)   */
+  --color-brand-500: #3360b7; /* Brand blue (dark)  */
+  --color-brand-600: #2a4e96;
+
+  --color-ink: #f7f8fa; /* Off-white din brand sheet */
+  --color-ink-muted: #a8b8cc;
+  --color-ink-dim: #6f8299;
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --breakpoint-xs: 26rem;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--color-navy-900);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-400);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-300);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .brand-gradient {
+    background-image: linear-gradient(180deg, #5394e7 0%, #3666c2 100%);
+  }
+
+  .brand-text-gradient {
+    background-image: linear-gradient(135deg, #8fbdf5 0%, #5b9fee 45%, #3360b7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .grid-backdrop {
+    background-image:
+      linear-gradient(to right, rgba(91, 159, 238, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(91, 159, 238, 0.07) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .glass {
+    background-color: rgba(18, 34, 54, 0.5);
+    border: 1px solid rgba(91, 159, 238, 0.14);
+    backdrop-filter: blur(12px);
+  }
+
+  .glow-brand {
+    box-shadow:
+      0 0 0 1px rgba(91, 159, 238, 0.2),
+      0 18px 50px -18px rgba(51, 96, 183, 0.7);
+  }
+}
+
+/* Animații de intrare (dezactivate pentru prefers-reduced-motion) */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.92);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.75s var(--ease-out-soft) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
