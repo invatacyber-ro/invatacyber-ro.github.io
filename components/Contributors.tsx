@@ -14,7 +14,7 @@ export default function Contributors({
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="max-w-2xl">
           <h2 className="font-display text-3xl leading-tight font-bold tracking-tight text-balance sm:text-4xl">
-            O comunitate nu se construiește singură. Iată persoanele care au ajutat la dezvoltarea acestei initiative.
+            O comunitate nu se construiește singură. Iată persoanele care au ajutat pana acum la dezvoltarea acestei initiative.
           </h2>
         </div>
 
