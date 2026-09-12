@@ -47,11 +47,38 @@ necunoscuta se ignora, intrarea fara `name` se ignora. Toate scriu warning in
 consola. Platforma noua se adauga in `SOCIAL_PLATFORMS` (`lib/content.ts`) plus
 iconița in `components/SocialIcon.tsx`.
 
+## Companii care ne sustin
+
+Sectiunea de sub Contributors Wall, generata din `content/supporters.yml`.
+Aceleasi casete ca la contribuitori:
+
+```yaml
+- name: CybrOps
+  logo: cybrops_logo.jpg
+  website: https://www.cybrops.io/
+  linkedin: https://www.linkedin.com/company/cybrops/
+```
+
+Doar `name` e obligatoriu. `website` si `linkedin` accepta si doar domeniul,
+`https://` se adauga automat.
+
+**Logo:** pune fisierul in `public/supporters/` si scrie doar numele lui. Merge
+si `logo:` si `photo:`, sunt acelasi lucru. Fara logo (sau cu un nume gresit) se
+afiseaza inițialele numelui si apare un warning in consola.
+
+Logo-ul umple o rama patrata de 64px, la fel ca pozele contribuitorilor. E
+afisat cu `object-contain`, deci un logo patrat umple rama complet, iar unul lat
+intra intreg, fara sa fie taiat. Cel mai bine arata un logo patrat. Fundalul
+ramei e inchis la culoare, deci foloseste logo-uri deschise sau cu transparenta.
+
+Daca stergi toate intrarile (chiar daca lasi comentariile), sectiunea dispare
+de pe site si build-ul trece normal.
+
 ## Restul textelor
 
 `content/site.yml` are numele, tagline-ul, descrierea si link-urile. Textele din
 pagina stau in `components/` (`Nav`, `Hero`, `Contributors`, `ContributorCard`,
-`Footer`).
+`Supporters`, `SupporterCard`, `Footer`).
 
 ## Branding
 

@@ -4,6 +4,7 @@ import { load as parseYaml } from 'js-yaml';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 const PHOTO_DIR = path.join(process.cwd(), 'public', 'contributors');
+const LOGO_DIR = path.join(process.cwd(), 'public', 'supporters');
 
 export const SOCIAL_PLATFORMS = [
   'linkedin',
@@ -37,6 +38,13 @@ export type Contributor = {
   initials: string;
 };
 
+export type Supporter = {
+  name: string;
+  logo?: string;
+  links: { platform: SocialPlatform; url: string; label: string }[];
+  initials: string;
+};
+
 export type SiteConfig = {
   name: string;
   tagline: string;
@@ -45,15 +53,46 @@ export type SiteConfig = {
   links: { discord: string; linkedin: string; email?: string };
 };
 
-function readYaml<T>(file: string): T {
+function readYaml<T>(file: string): T | undefined {
   const full = path.join(CONTENT_DIR, file);
+  let text: string;
   try {
-    return parseYaml(fs.readFileSync(full, 'utf8')) as T;
+    text = fs.readFileSync(full, 'utf8');
   } catch (err) {
     throw new Error(
-      `Nu am putut citi/parsa content/${file}: ${(err as Error).message}`
+      `Nu am putut citi content/${file}: ${(err as Error).message}`
     );
   }
+
+  // Fisier gol sau numai cu comentarii inseamna "nicio intrare", nu o eroare.
+  if (!text.replace(/^\s*#.*$/gm, '').trim()) return undefined;
+
+  try {
+    return parseYaml(text) as T;
+  } catch (err) {
+    throw new Error(
+      `Nu am putut parsa content/${file}: ${(err as Error).message}`
+    );
+  }
+}
+
+// Verificam la build time ca imaginea exista, ca sa nu ajunga 404 in producție.
+function resolveImage(
+  raw: unknown,
+  dir: string,
+  urlBase: string,
+  context: string
+): string | undefined {
+  const value = typeof raw === 'string' ? raw.trim() : '';
+  if (!value) return undefined;
+
+  const file = value.replace(/^.*[\\/]/, '');
+  if (fs.existsSync(path.join(dir, file))) return `${urlBase}/${file}`;
+
+  console.warn(
+    `${context}: "${file}" nu exista in public${urlBase}/, folosesc inițialele`
+  );
+  return undefined;
 }
 
 function initialsOf(name: string): string {
@@ -126,19 +165,12 @@ export function getContributors(): Contributor[] {
     .map((entry): Contributor => {
       const name = (entry.name as string).trim();
 
-      // Verificam la build time ca poza exista, ca sa nu ajunga 404 in producție.
-      let photo: string | undefined;
-      const rawPhoto = typeof entry.photo === 'string' ? entry.photo.trim() : '';
-      if (rawPhoto) {
-        const file = rawPhoto.replace(/^\/?(public\/)?contributors\//, '');
-        if (fs.existsSync(path.join(PHOTO_DIR, file))) {
-          photo = `/contributors/${file}`;
-        } else {
-          console.warn(
-            `[contributors.yml] ${name}: poza "${file}" nu exista in public/contributors/, folosesc inițialele`
-          );
-        }
-      }
+      const photo = resolveImage(
+        entry.photo,
+        PHOTO_DIR,
+        '/contributors',
+        `[contributors.yml] ${name}`
+      );
 
       const rawLinks =
         entry.links && typeof entry.links === 'object'
@@ -181,4 +213,40 @@ export function getContributors(): Contributor[] {
     });
 
   return contributors;
+}
+
+export function getSupporters(): Supporter[] {
+  const raw = readYaml<unknown>('supporters.yml');
+  if (!Array.isArray(raw)) return [];
+
+  return raw
+    .filter((entry): entry is Record<string, unknown> => {
+      if (!entry || typeof entry !== 'object') return false;
+      if (!('name' in entry) || typeof entry.name !== 'string') {
+        console.warn('[supporters.yml] intrare ignorata: lipseste `name`');
+        return false;
+      }
+      return true;
+    })
+    .map((entry): Supporter => {
+      const name = (entry.name as string).trim();
+
+      const links = (['website', 'linkedin'] as const)
+        .filter((key) => typeof entry[key] === 'string' && (entry[key] as string).trim())
+        .map((key) => ({
+          platform: key as SocialPlatform,
+          url: toUrl(key, (entry[key] as string).trim()),
+          label: PLATFORM_LABELS[key],
+        }));
+
+      // Acceptam si `photo:`, ca sa fie la fel ca in contributors.yml.
+      const logo = resolveImage(
+        entry.logo ?? entry.photo,
+        LOGO_DIR,
+        '/supporters',
+        `[supporters.yml] ${name}`
+      );
+
+      return { name, logo, links, initials: initialsOf(name) };
+    });
 }

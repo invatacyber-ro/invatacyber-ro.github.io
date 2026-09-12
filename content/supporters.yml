@@ -1,0 +1,9 @@
+# Companii care sustin initiativa. Ordinea de pe site = ordinea din acest fisier.
+# Campuri: name (obligatoriu), website, linkedin si logo (toate optionale).
+# Logo-urile stau in public/supporters/. Fara logo se afiseaza inițialele.
+# Daca stergi toate intrarile, sectiunea dispare automat de pe site.
+
+- name: CybrOps
+  website: https://www.cybrops.io/
+  linkedin: https://www.linkedin.com/company/cybrops/
+  photo: cybrops_logo.jpg
