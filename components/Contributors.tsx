@@ -19,11 +19,27 @@ export default function Contributors({
         </div>
 
         {contributors.length > 0 ? (
-          <ul className="mt-10 grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {contributors.map((person) => (
-              <ContributorCard key={person.name} person={person} />
-            ))}
-          </ul>
+          // <details> nativ: merge si fara JavaScript pe site-ul static.
+          <details className="group mt-10">
+            <summary className="glass flex cursor-pointer list-none items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-brand-200 transition select-none hover:border-brand-300/35 hover:bg-navy-800/70 [&::-webkit-details-marker]:hidden">
+              <span className="group-open:hidden">
+                Vezi toți contribuitorii ({contributors.length})
+              </span>
+              <span className="hidden group-open:inline">Ascunde contribuitorii</span>
+              <span
+                aria-hidden="true"
+                className="transition-transform group-open:rotate-180"
+              >
+                ▾
+              </span>
+            </summary>
+
+            <ul className="mt-4 grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {contributors.map((person) => (
+                <ContributorCard key={person.name} person={person} />
+              ))}
+            </ul>
+          </details>
         ) : (
           <p className="glass mt-10 rounded-2xl p-8 text-center text-ink-muted">
             

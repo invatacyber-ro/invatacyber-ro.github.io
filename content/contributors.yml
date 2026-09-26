@@ -50,3 +50,12 @@
   photo: bitlan.jpg
   links:
     linkedin: https://www.linkedin.com/in/adrian-bitlan-6714b4330/
+
+- name: Mihai Cujba
+  role: Security Researcher
+  photo: cujba.jpg
+  tags:
+    - Offensive Security
+    - Community
+  links:
+    linkedin: https://www.linkedin.com/in/mihai-cujb%C4%83-109b8a72/
