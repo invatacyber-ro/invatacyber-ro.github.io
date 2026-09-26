@@ -5,6 +5,7 @@ import { load as parseYaml } from 'js-yaml';
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 const PHOTO_DIR = path.join(process.cwd(), 'public', 'contributors');
 const LOGO_DIR = path.join(process.cwd(), 'public', 'supporters');
+const EVENT_PHOTO_DIR = path.join(process.cwd(), 'public', 'events');
 
 export const SOCIAL_PLATFORMS = [
   'linkedin',
@@ -43,6 +44,12 @@ export type Supporter = {
   logo?: string;
   links: { platform: SocialPlatform; url: string; label: string }[];
   initials: string;
+};
+
+export type CommunityEvent = {
+  name: string;
+  description?: string;
+  photo?: string;
 };
 
 export type SiteConfig = {
@@ -231,7 +238,7 @@ export function getSupporters(): Supporter[] {
     .map((entry): Supporter => {
       const name = (entry.name as string).trim();
 
-      const links = (['website', 'linkedin'] as const)
+      const links = (['website', 'linkedin', 'instagram'] as const)
         .filter((key) => typeof entry[key] === 'string' && (entry[key] as string).trim())
         .map((key) => ({
           platform: key as SocialPlatform,
@@ -248,5 +255,29 @@ export function getSupporters(): Supporter[] {
       );
 
       return { name, logo, links, initials: initialsOf(name) };
+    });
+}
+
+export function getEvents(): CommunityEvent[] {
+  const raw = readYaml<unknown>('events.yml');
+  if (!Array.isArray(raw)) return [];
+
+  return raw
+    .filter((entry): entry is Record<string, unknown> => {
+      if (!entry || typeof entry !== 'object') return false;
+      if (!('name' in entry) || typeof entry.name !== 'string') {
+        console.warn('[events.yml] intrare ignorata: lipseste `name`');
+        return false;
+      }
+      return true;
+    })
+    .map((entry): CommunityEvent => {
+      const name = (entry.name as string).trim();
+      return {
+        name,
+        description:
+          typeof entry.description === 'string' ? entry.description.trim() : undefined,
+        photo: resolveImage(entry.photo, EVENT_PHOTO_DIR, '/events', `[events.yml] ${name}`),
+      };
     });
 }

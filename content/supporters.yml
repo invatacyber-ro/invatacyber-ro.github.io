@@ -1,5 +1,5 @@
 # Companii care sustin initiativa. Ordinea de pe site = ordinea din acest fisier.
-# Campuri: name (obligatoriu), website, linkedin si logo (toate optionale).
+# Campuri: name (obligatoriu), website, linkedin, instagram si logo (toate optionale).
 # Logo-urile stau in public/supporters/. Fara logo se afiseaza inițialele.
 # Daca stergi toate intrarile, sectiunea dispare automat de pe site.
 

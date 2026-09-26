@@ -2,7 +2,7 @@ import Image from 'next/image';
 import SocialIcon from './SocialIcon';
 import type { Supporter } from '@/lib/content';
 
-// Aceeasi caseta ca la contribuitori, dar doar cu nume, site si LinkedIn.
+// Aceeasi caseta ca la contribuitori, dar doar cu nume, site, LinkedIn si Instagram.
 export default function SupporterCard({ company }: { company: Supporter }) {
   return (
     <li className="glass group flex h-full flex-col rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-300/30 hover:bg-navy-800/70">

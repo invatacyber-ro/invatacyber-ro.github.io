@@ -1,0 +1,15 @@
+# Evenimentele comunitatii. Ordinea de pe site = ordinea din acest fisier.
+# Campuri: name (obligatoriu), description si photo (optionale).
+# Pozele stau in public/events/. Fara poza, caseta arata doar textul.
+# Daca stergi toate intrarile, sectiunea dispare automat de pe site.
+
+- name: Întâlniri săptămânale - in desfasurare
+  description: >-
+    Ne vedem în fiecare săptămână pe Discord ca să discutăm obiectivele
+    fiecăruia în cybersecurity, progresul făcut și pașii următori.
+  photo: logo.png
+
+- name: InvataCyber - Mini CTF - 19-20 septembrie 2026
+  description: >-
+    Competiție Capture The Flag organizată de comunitate cu accent pe partea de colaborare.
+  photo: minictf.jpg
