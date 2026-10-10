@@ -148,7 +148,7 @@ export function getSite(): SiteConfig {
     throw new Error('content/site.yml: lipseste links.discord');
   }
   return {
-    name: raw.name ?? 'InvataCyber.ro',
+    name: raw.name ?? 'InvataCyber',
     tagline: raw.tagline ?? '',
     description: raw.description ?? '',
     url: raw.url ?? 'https://invatacyber.ro',

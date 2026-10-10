@@ -19,7 +19,7 @@ export default function Hero({ site }: { site: SiteConfig }) {
             />
             <Image
               src="/img/logo-shield.png"
-              alt="Logo InvataCyber.ro"
+              alt="Logo InvataCyber"
               width={706}
               height={879}
               priority
@@ -52,7 +52,7 @@ export default function Hero({ site }: { site: SiteConfig }) {
             className="animate-rise mt-6 max-w-xl text-[17px] leading-relaxed text-ink-muted text-pretty sm:text-lg"
             style={{ animationDelay: '200ms' }}
           >
-            In prezent, InvataCyber.ro isi desfasoara activitatile online pe Discord, dar vor avea loc si evenimente fizice. 
+            In prezent, InvataCyber isi desfasoara activitatile online pe Discord, dar vor avea loc si evenimente fizice. 
             Asa ca alatura-te ca sa nu le ratezi!
           
           </p>

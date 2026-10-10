@@ -20,7 +20,6 @@ export default function Nav({ site }: { site: SiteConfig }) {
           />
           <span className="font-display text-[15px] font-bold tracking-tight text-ink">
             Invata<span className="text-brand-300">Cyber</span>
-            <span className="text-ink-dim">.ro</span>
           </span>
         </a>
 

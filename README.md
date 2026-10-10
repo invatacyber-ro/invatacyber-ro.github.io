@@ -1,7 +1,7 @@
-# InvataCyber.ro
+# InvataCyber
 
 Site de prezentare temporar pentru comunitatea de securitate cibernetica
-InvataCyber.ro. O singura pagina: intra pe Discord, urmareste-ne pe LinkedIn,
+InvataCyber. O singura pagina: intra pe Discord, urmareste-ne pe LinkedIn,
 plus Contributors Wall.
 
 Next.js 16 + Tailwind 4 + TypeScript, export static (`output: 'export'`).
