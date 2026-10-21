@@ -21,7 +21,7 @@ export default function Contributors({
         {contributors.length > 0 ? (
           // <details> nativ: merge si fara JavaScript pe site-ul static.
           <details className="group mt-10">
-            <summary className="glass flex cursor-pointer list-none items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-brand-200 transition select-none hover:border-brand-300/35 hover:bg-navy-800/70 [&::-webkit-details-marker]:hidden">
+            <summary className="glass flex cursor-pointer list-none items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-brand-600 transition select-none hover:border-brand-500/35 hover:bg-surface-hover [&::-webkit-details-marker]:hidden">
               <span className="group-open:hidden">
                 Vezi toți contribuitorii ({contributors.length})
               </span>
@@ -59,7 +59,7 @@ export default function Contributors({
             href={site.links.discord}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-brand-300/30 bg-brand-500/15 px-5 py-3 text-sm font-semibold text-brand-200 transition hover:border-brand-300/50 hover:bg-brand-500/25 active:scale-[0.98]"
+            className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-brand-500/30 bg-brand-500/10 px-5 py-3 text-sm font-semibold text-brand-600 transition hover:border-brand-500/50 hover:bg-brand-500/25 active:scale-[0.98]"
           >
             <SocialIcon platform="discord" className="h-4 w-4" />
             Contribuie

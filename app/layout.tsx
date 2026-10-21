@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Archivo, Inter } from 'next/font/google';
 import './globals.css';
 import { getSite } from '@/lib/content';
 
@@ -9,9 +9,10 @@ const inter = Inter({
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({
+// Grotesk apasat, apropiat de literele din logo.
+const archivo = Archivo({
   subsets: ['latin', 'latin-ext'],
-  variable: '--font-space-grotesk',
+  variable: '--font-archivo',
   display: 'swap',
 });
 
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} | ${site.tagline}`,
     description: site.description,
-    images: [{ url: '/img/og-image.jpg', width: 1254, height: 1254, alt: site.name }],
+    images: [{ url: '/img/og-image.jpg', width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -46,24 +47,24 @@ export const metadata: Metadata = {
     images: ['/img/og-image.jpg'],
   },
   icons: {
-    icon: [{ url: '/img/logo-shield.png', type: 'image/png' }],
-    apple: '/img/logo-shield.png',
+    icon: [{ url: '/img/logo-icon.svg', type: 'image/svg+xml' }],
+    apple: '/img/apple-icon.png',
   },
   robots: { index: true, follow: true },
 };
 
 export const viewport = {
-  themeColor: '#0a1421',
-  colorScheme: 'dark' as const,
+  themeColor: '#ffffff',
+  colorScheme: 'light' as const,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ro" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="ro" className={`${inter.variable} ${archivo.variable}`}>
       <body>
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-500 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
         >
           Sari la conținut
         </a>

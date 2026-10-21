@@ -18,7 +18,7 @@ export default function Events({ events }: { events: CommunityEvent[] }) {
           {events.map((event) => (
             <li
               key={event.name}
-              className="glass group flex h-full flex-col overflow-hidden rounded-2xl transition duration-300 hover:-translate-y-1 hover:border-brand-300/30 hover:bg-navy-800/70"
+              className="glass group flex h-full flex-col overflow-hidden rounded-2xl transition duration-300 hover:-translate-y-1 hover:border-brand-500/30 hover:bg-surface-hover"
             >
               {/* object-cover: poza umple rama 16:9, orice format ar avea. */}
               {event.photo && (
@@ -27,7 +27,7 @@ export default function Events({ events }: { events: CommunityEvent[] }) {
                   alt={event.name}
                   width={640}
                   height={360}
-                  className="aspect-video w-full border-b border-brand-300/12 object-cover"
+                  className="aspect-video w-full border-b border-line object-cover"
                 />
               )}
 

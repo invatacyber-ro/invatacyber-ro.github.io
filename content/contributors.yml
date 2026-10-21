@@ -14,7 +14,7 @@
   role: Pentester si SOC Analyst
   photo: zbercea.jpg
   tags:
-    - Offensive Security
+    - Offensive & Defensive Security
     - Community
   links:
     linkedin: https://www.linkedin.com/in/zbercea-andrei/
@@ -59,3 +59,12 @@
     - Community
   links:
     linkedin: https://www.linkedin.com/in/mihai-cujb%C4%83-109b8a72/
+
+- name: Alexandru Pleșa
+  role: Cybersecurity Enthusiast
+  photo: plesa.jpg
+  tags:
+    - Defensive Security
+    - Community
+  links:
+    linkedin: https://www.linkedin.com/in/alexandru-plesa

@@ -1,25 +1,27 @@
 @import 'tailwindcss';
 
-/* Design tokens: derivate din invatacyber/branding/logo_brand_doc.md */
+/* Design tokens: derivate din invatacyber/new-branding (logo: #8F00FF, #82007F, negru, alb) */
 @theme {
-  --color-navy-950: #060d16;
-  --color-navy-900: #0a1421; /* Background navy din brand sheet */
-  --color-navy-850: #0e1b2b;
-  --color-navy-800: #122236;
-  --color-navy-700: #1b3049;
-  --color-navy-600: #24405f;
+  --color-surface: #ffffff; /* Fundalul paginii, alb ca in logo */
+  --color-surface-muted: #f7f4fb;
+  --color-surface-hover: #faf6ff;
+  --color-line: #e8e1f0;
 
-  --color-brand-200: #8fbdf5;
-  --color-brand-300: #5b9fee; /* Brand blue (light) */
-  --color-brand-400: #4681dd; /* Brand blue (mid)   */
-  --color-brand-500: #3360b7; /* Brand blue (dark)  */
-  --color-brand-600: #2a4e96;
+  --color-brand-50: #f6edff;
+  --color-brand-100: #ecd9ff;
+  --color-brand-200: #d9b3ff;
+  --color-brand-300: #b866ff;
+  --color-brand-400: #a033ff;
+  --color-brand-500: #8f00ff; /* Mov din logo (coperta cartii) */
+  --color-brand-600: #7600d4;
+  --color-brand-700: #5e00a8;
+  --color-plum: #82007f; /* Semnul de carte din logo */
 
-  --color-ink: #f7f8fa; /* Off-white din brand sheet */
-  --color-ink-muted: #a8b8cc;
-  --color-ink-dim: #6f8299;
+  --color-ink: #0b0b0f; /* Negrul din logo */
+  --color-ink-muted: #4a4458;
+  --color-ink-dim: #6e6780;
 
-  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --breakpoint-xs: 26rem;
@@ -34,7 +36,7 @@
   }
 
   body {
-    background-color: var(--color-navy-900);
+    background-color: var(--color-surface);
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -42,12 +44,12 @@
   }
 
   ::selection {
-    background-color: var(--color-brand-400);
+    background-color: var(--color-brand-500);
     color: #fff;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-brand-300);
+    outline: 2px solid var(--color-brand-500);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -55,11 +57,11 @@
 
 @layer utilities {
   .brand-gradient {
-    background-image: linear-gradient(180deg, #5394e7 0%, #3666c2 100%);
+    background-image: linear-gradient(180deg, #9d1aff 0%, #8000e6 100%);
   }
 
   .brand-text-gradient {
-    background-image: linear-gradient(135deg, #8fbdf5 0%, #5b9fee 45%, #3360b7 100%);
+    background-image: linear-gradient(135deg, #8f00ff 0%, #82007f 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -67,21 +69,23 @@
 
   .grid-backdrop {
     background-image:
-      linear-gradient(to right, rgba(91, 159, 238, 0.07) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(91, 159, 238, 0.07) 1px, transparent 1px);
+      linear-gradient(to right, rgba(143, 0, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(143, 0, 255, 0.06) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
+  /* Numele a ramas de la tema veche; acum e o caseta alba cu bordura fina. */
   .glass {
-    background-color: rgba(18, 34, 54, 0.5);
-    border: 1px solid rgba(91, 159, 238, 0.14);
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--color-line);
+    box-shadow: 0 1px 2px rgba(11, 11, 15, 0.04);
     backdrop-filter: blur(12px);
   }
 
   .glow-brand {
     box-shadow:
-      0 0 0 1px rgba(91, 159, 238, 0.2),
-      0 18px 50px -18px rgba(51, 96, 183, 0.7);
+      0 0 0 1px rgba(143, 0, 255, 0.25),
+      0 18px 40px -18px rgba(143, 0, 255, 0.55);
   }
 }
 

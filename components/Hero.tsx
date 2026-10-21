@@ -7,7 +7,7 @@ export default function Hero({ site }: { site: SiteConfig }) {
     <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="grid-backdrop absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]" />
-        <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-brand-500/22 blur-[130px]" />
+        <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-brand-500/12 blur-[130px]" />
       </div>
 
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -15,25 +15,25 @@ export default function Hero({ site }: { site: SiteConfig }) {
           <div className="animate-rise relative mb-8">
             <span
               aria-hidden="true"
-              className="absolute inset-0 -z-10 rounded-full bg-brand-400/25 blur-3xl"
+              className="absolute inset-0 -z-10 rounded-full bg-brand-500/10 blur-3xl"
             />
             <Image
-              src="/img/logo-shield.png"
+              src="/img/logo.svg"
               alt="Logo InvataCyber"
-              width={706}
-              height={879}
+              width={877}
+              height={556}
               priority
-              className="h-28 w-auto drop-shadow-[0_10px_35px_rgba(51,96,183,0.55)] sm:h-36"
+              className="h-36 w-auto sm:h-52"
             />
           </div>
 
           <p
-            className="animate-rise mb-6 inline-flex items-center gap-2.5 rounded-full border border-brand-300/25 bg-brand-500/10 px-4 py-1.5 text-[12.5px] font-medium tracking-wide text-brand-200 uppercase"
+            className="animate-rise mb-6 inline-flex items-center gap-2.5 rounded-full border border-brand-500/25 bg-brand-500/10 px-4 py-1.5 text-[12.5px] font-medium tracking-wide text-brand-600 uppercase"
             style={{ animationDelay: '80ms' }}
           >
             <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-brand-300 opacity-75 [animation:pulse-ring_2s_ease-out_infinite]" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-300" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-75 [animation:pulse-ring_2s_ease-out_infinite]" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-500" />
             </span>
             {site.tagline}
           </p>
@@ -80,7 +80,7 @@ export default function Hero({ site }: { site: SiteConfig }) {
               href={site.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass inline-flex w-full items-center justify-center gap-2.5 rounded-xl px-7 py-3.5 text-base font-semibold text-ink transition hover:border-brand-300/35 hover:bg-navy-800/70 active:scale-[0.98] sm:w-auto"
+              className="glass inline-flex w-full items-center justify-center gap-2.5 rounded-xl px-7 py-3.5 text-base font-semibold text-ink transition hover:border-brand-500/35 hover:bg-surface-hover active:scale-[0.98] sm:w-auto"
             >
               <SocialIcon platform="linkedin" className="h-5 w-5" />
               Urmărește-ne

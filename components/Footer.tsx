@@ -3,7 +3,7 @@ import type { SiteConfig } from '@/lib/content';
 
 export default function Footer({ site }: { site: SiteConfig }) {
   return (
-    <footer className="border-t border-brand-300/10 bg-navy-950">
+    <footer className="border-t border-line bg-surface-muted">
       <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-10 text-[13.5px] text-ink-dim sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <p>© 2026 {site.name}. Versiune temporară a site-ului.</p>
 

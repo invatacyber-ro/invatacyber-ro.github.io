@@ -4,22 +4,22 @@ import type { SiteConfig } from '@/lib/content';
 
 export default function Nav({ site }: { site: SiteConfig }) {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-brand-300/10 bg-navy-900/80 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-surface/85 backdrop-blur-xl">
       <nav
         aria-label="Navigare principală"
         className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8"
       >
         <a href="#" className="flex shrink-0 items-center gap-2.5" aria-label={site.name}>
           <Image
-            src="/img/logo-shield.png"
+            src="/img/logo-icon.svg"
             alt=""
-            width={706}
-            height={879}
-            className="h-8 w-auto"
+            width={556}
+            height={556}
+            className="h-10 w-10"
             priority
           />
-          <span className="font-display text-[15px] font-bold tracking-tight text-ink">
-            Invata<span className="text-brand-300">Cyber</span>
+          <span className="font-display text-[15px] leading-none font-extrabold tracking-tight text-ink uppercase">
+            Invata<span className="text-brand-500">Cyber</span>
           </span>
         </a>
 
@@ -29,7 +29,7 @@ export default function Nav({ site }: { site: SiteConfig }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="rounded-lg p-2 text-ink-muted transition-colors hover:bg-brand-300/10 hover:text-ink"
+            className="rounded-lg p-2 text-ink-muted transition-colors hover:bg-brand-500/10 hover:text-ink"
           >
             <SocialIcon platform="linkedin" className="h-[18px] w-[18px]" />
           </a>

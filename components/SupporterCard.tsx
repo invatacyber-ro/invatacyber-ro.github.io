@@ -5,7 +5,7 @@ import type { Supporter } from '@/lib/content';
 // Aceeasi caseta ca la contribuitori, dar doar cu nume, site, LinkedIn si Instagram.
 export default function SupporterCard({ company }: { company: Supporter }) {
   return (
-    <li className="glass group flex h-full flex-col rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-300/30 hover:bg-navy-800/70">
+    <li className="glass group flex h-full flex-col rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-500/30 hover:bg-surface-hover">
       {/* object-contain: un logo patrat umple rama, unul lat nu se taie. */}
       {company.logo ? (
         <Image
@@ -13,12 +13,12 @@ export default function SupporterCard({ company }: { company: Supporter }) {
           alt={`Logo ${company.name}`}
           width={128}
           height={128}
-          className="h-16 w-16 rounded-2xl bg-brand-500/15 object-contain ring-1 ring-brand-300/20"
+          className="h-16 w-16 rounded-2xl bg-brand-500/10 object-contain ring-1 ring-line"
         />
       ) : (
         <span
           aria-hidden="true"
-          className="font-display flex h-16 w-16 items-center justify-center rounded-2xl border border-brand-300/20 bg-brand-500/15 text-lg font-bold text-brand-300"
+          className="font-display flex h-16 w-16 items-center justify-center rounded-2xl border border-line bg-brand-500/10 text-lg font-bold text-brand-500"
         >
           {company.initials}
         </span>
@@ -38,7 +38,7 @@ export default function SupporterCard({ company }: { company: Supporter }) {
                 rel="noopener noreferrer"
                 title={`${company.name} pe ${link.label}`}
                 aria-label={`${company.name} pe ${link.label}`}
-                className="flex h-8 w-8 items-center justify-center rounded-lg border border-brand-300/12 bg-navy-700/40 text-ink-muted transition hover:border-brand-300/40 hover:bg-brand-500/20 hover:text-brand-200"
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-line bg-surface-muted text-ink-muted transition hover:border-brand-500/40 hover:bg-brand-500/20 hover:text-brand-600"
               >
                 <SocialIcon platform={link.platform} className="h-4 w-4" />
               </a>
