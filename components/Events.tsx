@@ -1,6 +1,25 @@
 import Image from 'next/image';
 import type { CommunityEvent } from '@/lib/content';
 
+// Link-urile din descriere devin clickabile; restul textului ramane neschimbat.
+function linkify(text: string) {
+  return text.split(/(https?:\/\/[^\s]+)/g).map((part, i) =>
+    /^https?:\/\//.test(part) ? (
+      <a
+        key={i}
+        href={part}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-medium break-all text-brand-500 underline decoration-brand-500/30 underline-offset-2 transition hover:decoration-brand-500"
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function Events({ events }: { events: CommunityEvent[] }) {
   // Fara intrari in events.yml, sectiunea nu se afiseaza deloc.
   if (events.length === 0) return null;
@@ -36,8 +55,8 @@ export default function Events({ events }: { events: CommunityEvent[] }) {
                   {event.name}
                 </h3>
                 {event.description && (
-                  <p className="mt-3 text-[14.5px] leading-relaxed text-ink-muted">
-                    {event.description}
+                  <p className="mt-3 text-[14.5px] leading-relaxed whitespace-pre-line text-ink-muted">
+                    {linkify(event.description)}
                   </p>
                 )}
               </div>

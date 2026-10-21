@@ -55,6 +55,7 @@ export type CommunityEvent = {
 export type SiteConfig = {
   name: string;
   tagline: string;
+  slogan?: string;
   description: string;
   url: string;
   links: { discord: string; linkedin: string; email?: string };
@@ -150,6 +151,7 @@ export function getSite(): SiteConfig {
   return {
     name: raw.name ?? 'InvataCyber',
     tagline: raw.tagline ?? '',
+    slogan: raw.slogan?.trim() || undefined,
     description: raw.description ?? '',
     url: raw.url ?? 'https://invatacyber.ro',
     links: raw.links as SiteConfig['links'],

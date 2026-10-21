@@ -12,19 +12,38 @@ export default function Hero({ site }: { site: SiteConfig }) {
 
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="flex flex-col items-center text-center">
-          <div className="animate-rise relative mb-8">
+          {/* Bannerul din new-branding/banner.jpg, refacut in cod ca sa ramana clar pe orice ecran. */}
+          <div className="animate-rise relative mb-10 w-full max-w-4xl overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_18px_50px_-24px_rgba(143,0,255,0.35)]">
             <span
               aria-hidden="true"
-              className="absolute inset-0 -z-10 rounded-full bg-brand-500/10 blur-3xl"
+              className="brand-gradient absolute top-0 left-0 h-16 w-20 [clip-path:polygon(0_0,100%_0,0_100%)] sm:h-20 sm:w-28"
             />
-            <Image
-              src="/img/logo.svg"
-              alt="Logo InvataCyber"
-              width={877}
-              height={556}
-              priority
-              className="h-36 w-auto sm:h-52"
+            <span
+              aria-hidden="true"
+              className="brand-gradient absolute right-0 bottom-0 h-16 w-20 [clip-path:polygon(100%_0,100%_100%,0_100%)] sm:h-24 sm:w-32"
             />
+
+            <div className="relative flex flex-col items-center justify-center gap-5 px-6 py-8 sm:flex-row sm:gap-10 sm:px-12 sm:py-6">
+              <Image
+                src="/img/logo.svg"
+                alt="Logo InvataCyber"
+                width={877}
+                height={556}
+                priority
+                className="h-28 w-auto sm:h-36"
+              />
+              {site.slogan && (
+                <>
+                  <span
+                    aria-hidden="true"
+                    className="h-0.5 w-16 rounded-full bg-brand-500 sm:h-24 sm:w-0.5"
+                  />
+                  <p className="font-display text-3xl font-extrabold tracking-tight text-brand-500 sm:text-5xl">
+                    {site.slogan}
+                  </p>
+                </>
+              )}
+            </div>
           </div>
 
           <p
@@ -42,9 +61,9 @@ export default function Hero({ site }: { site: SiteConfig }) {
             className="animate-rise font-display max-w-3xl text-4xl leading-[1.08] font-bold tracking-tight text-balance sm:text-6xl"
             style={{ animationDelay: '140ms' }}
           >
-           Hai să descoperi lumea securității cibernetice sau să-i ajuți și pe alții să o descopere,{' '}
+           Hai să descoperi lumea securității cibernetice{' '}
             <span className="brand-text-gradient">
-              într-un spațiu prietenos în care oamenii cresc împreună prin colaborare.
+              alături de alți pasionați ai acestui domeniu.
             </span>
           </h1>
 
