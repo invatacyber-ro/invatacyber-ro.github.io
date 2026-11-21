@@ -26,6 +26,17 @@ export default function Footer({ site }: { site: SiteConfig }) {
             <SocialIcon platform="linkedin" className="h-4 w-4" />
             LinkedIn
           </a>
+          {site.links.instagram && (
+            <a
+              href={site.links.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 transition-colors hover:text-ink"
+            >
+              <SocialIcon platform="instagram" className="h-4 w-4" />
+              Instagram
+            </a>
+          )}
           {site.links.email && (
             <a
               href={`mailto:${site.links.email}`}

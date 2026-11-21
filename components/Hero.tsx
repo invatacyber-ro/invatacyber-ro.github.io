@@ -71,8 +71,8 @@ export default function Hero({ site }: { site: SiteConfig }) {
             className="animate-rise mt-6 max-w-xl text-[17px] leading-relaxed text-ink-muted text-pretty sm:text-lg"
             style={{ animationDelay: '200ms' }}
           >
-            In prezent, InvataCyber isi desfasoara activitatile online pe Discord, dar vor avea loc si evenimente fizice. 
-            Asa ca alatura-te ca sa nu le ratezi!
+            In prezent, InvataCyber desfasoara activitatile online pe Discord si evenimente fizice. 
+            Asa ca alatura-te comunitatii ca sa nu le ratezi!
           
           </p>
 

@@ -58,7 +58,7 @@ export type SiteConfig = {
   slogan?: string;
   description: string;
   url: string;
-  links: { discord: string; linkedin: string; email?: string };
+  links: { discord: string; linkedin: string; instagram?: string; email?: string };
 };
 
 function readYaml<T>(file: string): T | undefined {

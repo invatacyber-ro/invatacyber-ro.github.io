@@ -33,6 +33,17 @@ export default function Nav({ site }: { site: SiteConfig }) {
           >
             <SocialIcon platform="linkedin" className="h-[18px] w-[18px]" />
           </a>
+          {site.links.instagram && (
+            <a
+              href={site.links.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="rounded-lg p-2 text-ink-muted transition-colors hover:bg-brand-500/10 hover:text-ink"
+            >
+              <SocialIcon platform="instagram" className="h-[18px] w-[18px]" />
+            </a>
+          )}
           <a
             href={site.links.discord}
             target="_blank"
